@@ -5,9 +5,11 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <RootNamespace>Finance.Ai.Presentation</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="MediatR" Version="12.4.1" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0"/>
     </ItemGroup>
 
@@ -18,8 +20,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Application\Application.csproj" />
-      <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+      <ProjectReference Include="..\Finance.Ai.Application\Finance.Ai.Application.csproj" />
+      <ProjectReference Include="..\Finance.Ai.Infrastructure\Finance.Ai.Infrastructure.csproj" />
+      <ProjectReference Include="..\Finance.Ai.Presentation\Finance.Ai.Presentation.csproj" />
     </ItemGroup>
 
 </Project>
