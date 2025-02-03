@@ -2,7 +2,7 @@
 
 namespace Finance.Ai.Domain.Users;
 
-public interface IUserRepository
+public interface IUsersRepository
 {
     Task<User> GetByIdAsync(Guid id);
     Task<User> GetByEmailAsync(Email email);

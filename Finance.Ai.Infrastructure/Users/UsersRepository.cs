@@ -1,9 +1,9 @@
 ﻿using Finance.Ai.Domain.Users;
 using Finance.Ai.Domain.ValueObjects;
 
-namespace Finance.Ai.Application.Users;
+namespace Finance.Ai.Infrastructure.Users;
 
-public class UserRepository : IUserRepository
+public class UsersRepository : IUsersRepository
 {
     public Task<User> GetByIdAsync(Guid id)
     {

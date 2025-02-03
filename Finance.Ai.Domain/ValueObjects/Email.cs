@@ -27,7 +27,7 @@ namespace Finance.Ai.Domain.ValueObjects
         }
 
         private static readonly Regex EmailRegex = new(
-            @"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$",
+            @"^(?!.*\.\.)[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$",
             RegexOptions.Compiled);
     }
 }

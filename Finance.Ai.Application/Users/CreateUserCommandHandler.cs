@@ -6,20 +6,20 @@ using Finance.Ai.Domain.ValueObjects;
 namespace Finance.Ai.Application.Users;
 
 internal sealed class CreateUserCommandHandler(
-    IUserRepository userRepository, 
+    IUsersRepository usersRepository, 
     IUnitOfWork unitOfWork) : ICommandHandler<CreateUserCommand, UserDto>
 {
     public async Task<Result<UserDto>> Handle(CreateUserCommand command, CancellationToken cancellationToken)
     {
         var email = Email.Create(command.Email);
         
-        var user = await userRepository.GetByEmailAsync(email);
+        var user = await usersRepository.GetByEmailAsync(email);
         if (user != null)
         {
             throw new Exception("User already exists with this email");
         }
 
-        user = await userRepository.CreateAsync(Guid.NewGuid(), email);
+        user = await usersRepository.CreateAsync(Guid.NewGuid(), email);
         
         await unitOfWork.SaveChangesAsync();
 
