@@ -8,7 +8,5 @@
   &lt;Project Location="G:\git\csharky\dotnet\finance.ai\Finance.Ai.Tests" Presentation="&amp;lt;Finance.Ai.Tests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=fa9c768b_002D9702_002D4487_002Db65d_002D90c7e17a912f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Create_ValidEmail_ReturnsEmailValueObject" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::F180B746-62B3-4C36-B434-2CD178922BEC::net9.0::Finance.Ai.Tests.Finance.Ai.Domain.ValueObjects.EmailTests&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
+  &lt;Project Location="G:\git\csharky\dotnet\finance.ai\Finance.Ai.Tests" Presentation="&amp;lt;Finance.Ai.Tests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

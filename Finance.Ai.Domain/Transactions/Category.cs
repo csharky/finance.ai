@@ -1,8 +1,12 @@
-﻿namespace Finance.Ai.Domain.Transactions;
+﻿using Finance.Ai.Domain.Users;
 
-public record Category(Guid Id, string Name, Guid UserId)
+namespace Finance.Ai.Domain.Transactions;
+
+public record Category
 {
-    public Guid Id { get; } = Id;
-    public string Name { get; } = Name;
-    public Guid UserId { get; } = UserId;
+    public Guid Id { get; set; }
+    public string Name { get; set; }
+    public Guid UserId { get; set; } 
+    
+    public User User { get; set; }
 }

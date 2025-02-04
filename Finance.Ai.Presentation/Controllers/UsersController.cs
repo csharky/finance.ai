@@ -4,10 +4,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Finance.Ai.Presentation.Controllers;
 
-[Route("api/user")]
-public class UserController : ApiController
+[Route("api/users")]
+public class UsersController : ApiController
 {
-    public UserController(ISender sender) : base(sender)
+    public UsersController(ISender sender) : base(sender)
     {
     }
 

@@ -1,7 +1,7 @@
 ﻿using Finance.Ai.Domain.ValueObjects;
 using MediatR;
 
-namespace Finance.Ai.Application.Abstractions;
+namespace Finance.Ai.Application.Abstractions.Messaging;
 
 public interface ICommandHandler<TCommand> : IRequestHandler<TCommand, Result>
     where TCommand : ICommand

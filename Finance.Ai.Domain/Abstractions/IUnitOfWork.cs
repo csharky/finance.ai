@@ -4,5 +4,5 @@ namespace Finance.Ai.Domain.Abstractions;
 
 public interface IUnitOfWork
 {
-    Task<Result> SaveChangesAsync();
+    Task<Result> SaveChangesAsync(CancellationToken cancellationToken = default);
 }

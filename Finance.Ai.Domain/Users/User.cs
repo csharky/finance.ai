@@ -2,8 +2,14 @@
 
 namespace Finance.Ai.Domain.Users;
 
-public class User(Guid Id, Email Email)
+public class User
 {
-    public Guid Id { get; } = Id;
-    public Email Email { get; } = Email;
+    public User(Guid id, Email email)
+    {
+        Id = id;
+        Email = email;
+    }
+
+    public Guid Id { get; }
+    public Email Email { get; }
 }
