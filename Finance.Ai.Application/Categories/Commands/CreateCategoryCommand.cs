@@ -1,7 +1,7 @@
-﻿using Finance.Ai.Application.Abstractions;
-using Finance.Ai.Application.Abstractions.Messaging;
+﻿using Finance.Ai.Application.Abstractions.Messaging;
+using Finance.Ai.Application.Categories.Dto;
 
-namespace Finance.Ai.Application.Categories;
+namespace Finance.Ai.Application.Categories.Commands;
 
 public class CreateCategoryCommand : ICommand<CreateCategoryDto>
 {

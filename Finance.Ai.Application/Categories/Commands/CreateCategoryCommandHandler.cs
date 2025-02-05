@@ -1,10 +1,10 @@
-﻿using Finance.Ai.Application.Abstractions;
-using Finance.Ai.Application.Abstractions.Messaging;
+﻿using Finance.Ai.Application.Abstractions.Messaging;
+using Finance.Ai.Application.Categories.Dto;
 using Finance.Ai.Domain.Abstractions;
 using Finance.Ai.Domain.Users;
 using Finance.Ai.Domain.ValueObjects;
 
-namespace Finance.Ai.Application.Categories;
+namespace Finance.Ai.Application.Categories.Commands;
 
 internal sealed class CreateCategoryCommandHandler(
     ICategoriesRepository categoriesRepository, 
@@ -17,7 +17,7 @@ internal sealed class CreateCategoryCommandHandler(
         var user = await usersRepository.GetByIdAsync(command.UserId, cancellationToken);
         if (user == null)
         {
-            throw new Exception("User does not exist");
+            return Result<CreateCategoryDto>.Fail("User does not exist");
         }
         
         var category = await categoriesRepository.CreateAsync(
@@ -28,7 +28,7 @@ internal sealed class CreateCategoryCommandHandler(
 
         if (category == null)
         {
-            throw new Exception("Category was not created");
+            return Result<CreateCategoryDto>.Fail("Category was not created");
         }
         
         await unitOfWork.SaveChangesAsync(cancellationToken);

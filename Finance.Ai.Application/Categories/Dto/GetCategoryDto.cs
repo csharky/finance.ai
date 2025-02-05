@@ -1,4 +1,4 @@
-﻿namespace Finance.Ai.Application.Categories;
+﻿namespace Finance.Ai.Application.Categories.Dto;
 
 public class GetCategoryDto
 {

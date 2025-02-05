@@ -1,7 +1,7 @@
 ﻿using Finance.Ai.Application.Abstractions.Messaging;
-using Finance.Ai.Domain.Transactions;
+using Finance.Ai.Application.Categories.Dto;
 
-namespace Finance.Ai.Application.Categories;
+namespace Finance.Ai.Application.Categories.Queries;
 
 public class GetCategoryQuery : IQuery<GetCategoryDto>
 {

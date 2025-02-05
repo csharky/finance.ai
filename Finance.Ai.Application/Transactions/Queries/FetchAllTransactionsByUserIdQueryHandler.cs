@@ -4,11 +4,11 @@ using Finance.Ai.Domain.ValueObjects;
 
 namespace Finance.Ai.Application.Categories.Queries;
 
-public class FetchAllCategoriesQueryHandler : IQueryHandler<FetchAllCategoriesQuery, FetchAllCategoriesDto>
+public class FetchAllTransactionsByUserIdQueryHandler : IQueryHandler<FetchAllCategoriesQuery, FetchAllCategoriesDto>
 {
     private readonly ICategoriesRepository _categoriesRepository;
     
-    public FetchAllCategoriesQueryHandler(ICategoriesRepository categoriesRepository)
+    public FetchAllTransactionsByUserIdQueryHandler(ICategoriesRepository categoriesRepository)
     {
         _categoriesRepository = categoriesRepository;
     }

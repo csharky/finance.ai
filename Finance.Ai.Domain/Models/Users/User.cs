@@ -1,8 +1,8 @@
 ﻿using Finance.Ai.Domain.ValueObjects;
 
-namespace Finance.Ai.Domain.Users;
+namespace Finance.Ai.Domain.Models.Users;
 
-public class User
+public class User : Entity
 {
     public User(Guid id, Email email)
     {

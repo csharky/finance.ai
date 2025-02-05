@@ -1,4 +1,5 @@
-﻿using Finance.Ai.Domain.Transactions;
+﻿using Finance.Ai.Domain.Models.Transactions;
+using Finance.Ai.Domain.Models.Users;
 using Finance.Ai.Domain.Users;
 using Finance.Ai.Infrastructure.Persistence.Categories;
 using Finance.Ai.Infrastructure.Persistence.Transactions;

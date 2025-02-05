@@ -15,6 +15,7 @@ public class Result<T>
     public string? Error { get; private init; }
     
     public bool IsSuccess { get; private init; } // Explicitly stores success/failure state
+    public bool IsFailed => !IsSuccess;
 
     public static Result<T> Success(T value) => new Result<T>
     {

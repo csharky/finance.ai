@@ -1,32 +1,35 @@
-﻿using Finance.Ai.Domain.Transactions;
+﻿using Finance.Ai.Domain.Models.Transactions;
+using Finance.Ai.Domain.Models.Users;
+using Finance.Ai.Infrastructure.Persistence.Abstactions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Finance.Ai.Infrastructure.Persistence.Transactions;
 
-internal class TransactionEntityTypeConfiguration : IEntityTypeConfiguration<Transaction>
+internal class TransactionEntityTypeConfiguration : EntityTypeConfiguration<Transaction>
 {
-    public void Configure(EntityTypeBuilder<Transaction> builder)
+    protected override void OnConfigure(EntityTypeBuilder<Transaction> builder)
     {
-        // Set primary key
         builder.HasKey(t => t.Id);
 
-        // Configure the foreign key relationship with Category
         builder
             .HasOne<Category>()
-            .WithMany() // Assuming no navigation property in Category for Transactions
+            .WithMany() 
             .HasForeignKey(t => t.CategoryId)
-            .OnDelete(DeleteBehavior.Cascade); // Adjust cascade behavior as necessary
+            .OnDelete(DeleteBehavior.Cascade);
+        
+        builder
+            .HasOne<User>()
+            .WithMany() 
+            .HasForeignKey(t => t.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
 
-        // Set required fields
         builder.Property(t => t.Time).IsRequired();
         builder.Property(t => t.Name)
             .IsRequired()
-            .HasMaxLength(100); // MaxLength can be adjusted as needed
+            .HasMaxLength(100);
         builder.Property(t => t.Amount).IsRequired();
 
-        // Set table name (optional, defaults to DbSet name -> Transactions)
         builder.ToTable("Transactions");
-
     }
 }

@@ -1,4 +1,5 @@
-﻿using Finance.Ai.Domain.ValueObjects;
+﻿using Finance.Ai.Domain.Models.Users;
+using Finance.Ai.Domain.ValueObjects;
 
 namespace Finance.Ai.Domain.Users;
 

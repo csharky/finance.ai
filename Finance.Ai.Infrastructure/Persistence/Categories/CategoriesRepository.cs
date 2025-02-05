@@ -1,5 +1,5 @@
 ﻿using Finance.Ai.Application.Categories;
-using Finance.Ai.Domain.Transactions;
+using Finance.Ai.Domain.Models.Transactions;
 using Microsoft.EntityFrameworkCore;
 
 namespace Finance.Ai.Infrastructure.Persistence.Categories;
@@ -22,7 +22,6 @@ internal class CategoriesRepository : ICategoriesRepository
     {
         var category = new Category()
         {
-            Id = id,
             UserId = userId,
             Name = name,
         };

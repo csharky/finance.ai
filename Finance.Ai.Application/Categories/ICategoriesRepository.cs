@@ -1,4 +1,4 @@
-﻿using Finance.Ai.Domain.Transactions;
+﻿using Finance.Ai.Domain.Models.Transactions;
 
 namespace Finance.Ai.Application.Categories;
 

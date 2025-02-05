@@ -1,16 +1,15 @@
-﻿using Finance.Ai.Domain.Users;
+﻿using Finance.Ai.Domain.Models.Users;
 using Finance.Ai.Domain.ValueObjects;
+using Finance.Ai.Infrastructure.Persistence.Abstactions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Finance.Ai.Infrastructure.Persistence.Users;
 
-internal class UserEntityTypeConfiguration : IEntityTypeConfiguration<User>
+internal class UserEntityTypeConfiguration : EntityTypeConfiguration<User>
 {
-    public void Configure(EntityTypeBuilder<User> builder)
+    protected override void OnConfigure(EntityTypeBuilder<User> builder)
     {
-        builder.HasKey(u => u.Id);
-
         builder
             .Property(u => u.Email)
             .HasConversion(

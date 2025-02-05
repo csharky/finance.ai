@@ -1,4 +1,6 @@
 ﻿using Finance.Ai.Application.Categories;
+using Finance.Ai.Application.Categories.Commands;
+using Finance.Ai.Application.Categories.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

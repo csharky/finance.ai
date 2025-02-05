@@ -15,14 +15,14 @@ internal sealed class CreateUserCommandHandler(IUsersRepository usersRepository,
         var user = await usersRepository.GetByEmailAsync(email, cancellationToken);
         if (user != null)
         {
-            throw new Exception("User already exists with this email");
+            return Result<CreateUserDto>.Fail("User already exists with this email");
         }
 
         user = await usersRepository.CreateAsync(Guid.NewGuid(), email, cancellationToken);
 
         if (user == null)
         {
-            throw new Exception("User was not created");
+            return Result<CreateUserDto>.Fail("User was not created");
         }
         
         await unitOfWork.SaveChangesAsync(cancellationToken);
