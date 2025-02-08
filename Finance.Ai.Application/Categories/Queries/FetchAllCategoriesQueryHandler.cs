@@ -1,5 +1,6 @@
 ﻿using Finance.Ai.Application.Abstractions.Messaging;
 using Finance.Ai.Application.Categories.Dto;
+using Finance.Ai.Domain.Users;
 using Finance.Ai.Domain.ValueObjects;
 
 namespace Finance.Ai.Application.Categories.Queries;
@@ -7,20 +8,23 @@ namespace Finance.Ai.Application.Categories.Queries;
 public class FetchAllCategoriesQueryHandler : IQueryHandler<FetchAllCategoriesQuery, FetchAllCategoriesDto>
 {
     private readonly ICategoriesRepository _categoriesRepository;
+    private readonly IUsersRepository _usersRepository;
     
-    public FetchAllCategoriesQueryHandler(ICategoriesRepository categoriesRepository)
+    public FetchAllCategoriesQueryHandler(ICategoriesRepository categoriesRepository, IUsersRepository usersRepository)
     {
         _categoriesRepository = categoriesRepository;
+        _usersRepository = usersRepository;
     }
     
     public async Task<Result<FetchAllCategoriesDto>> Handle(
         FetchAllCategoriesQuery request, CancellationToken cancellationToken)
     {
-        if (request.UserId == Guid.Empty)
+        var user = await _usersRepository.GetByIdAsync(request.UserId, cancellationToken);
+        if (user == null)
         {
-            return Result<FetchAllCategoriesDto>.Fail($"{nameof(request.UserId)} is empty");
+            return Result<FetchAllCategoriesDto>.Fail("User does not exist");
         }
-
+        
         var categories = await _categoriesRepository.FetchAllAsync(request.UserId, cancellationToken);
         var dto = new FetchAllCategoriesDto
         {

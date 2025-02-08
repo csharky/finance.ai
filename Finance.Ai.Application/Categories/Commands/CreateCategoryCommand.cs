@@ -3,8 +3,8 @@ using Finance.Ai.Application.Categories.Dto;
 
 namespace Finance.Ai.Application.Categories.Commands;
 
-public class CreateCategoryCommand : ICommand<CreateCategoryDto>
+public class CreateCategoryCommand(string name, Guid userId) : ICommand<CreateCategoryDto>
 {
-    public Guid UserId { get; set; }
-    public string Name { get; set; }
+    public Guid UserId { get; private init; } = userId;
+    public string Name { get; private init; } = name;
 }

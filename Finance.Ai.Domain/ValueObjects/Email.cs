@@ -18,7 +18,7 @@ namespace Finance.Ai.Domain.ValueObjects
                 throw new ArgumentException("Email must not be null, empty, or whitespace.", nameof(email));
             }
 
-            if (!EmailRegex.IsMatch(email))
+            if (!IsValid(email))
             {
                 throw new ArgumentException($"Invalid email format: {email}.", nameof(email));
             }
@@ -29,5 +29,10 @@ namespace Finance.Ai.Domain.ValueObjects
         private static readonly Regex EmailRegex = new(
             @"^(?!.*\.\.)[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$",
             RegexOptions.Compiled);
+
+        public static bool IsValid(string email)
+        {
+            return EmailRegex.IsMatch(email);
+        }
     }
 }

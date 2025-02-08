@@ -3,3 +3,14 @@ obj/
 /packages/
 riderModule.iml
 /_ReSharper.Caches/
+
+**/appsettings.Development.json
+**/appsettings.Production.json
+**/appsettings.Staging.json
+
+**/node_modules/
+**/Finance.Ai.Frontend/node_modules/
+**/logs/
+
+.env
+*.user

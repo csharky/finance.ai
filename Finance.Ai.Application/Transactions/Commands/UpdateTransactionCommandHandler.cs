@@ -18,7 +18,7 @@ internal sealed class UpdateTransactionCommandHandler(
             return Result<UpdateTransactionDto>.Fail("Transaction does not exist");
         }
         
-        transaction.Update(command.CategoryId, transaction.Time, command.Name, command.Amount);
+        transaction.Update(command.CategoryId, transaction.DateTime, command.Name, command.Amount);
         
         await unitOfWork.SaveChangesAsync(cancellationToken);
 

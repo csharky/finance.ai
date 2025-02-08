@@ -24,7 +24,7 @@ internal class TransactionEntityTypeConfiguration : EntityTypeConfiguration<Tran
             .HasForeignKey(t => t.UserId)
             .OnDelete(DeleteBehavior.Cascade);
 
-        builder.Property(t => t.Time).IsRequired();
+        builder.Property(t => t.DateTime).IsRequired();
         builder.Property(t => t.Name)
             .IsRequired()
             .HasMaxLength(100);

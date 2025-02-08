@@ -3,12 +3,12 @@ using Finance.Ai.Application.Transactions.Dto;
 
 namespace Finance.Ai.Application.Transactions.Commands;
 
-public class AddTransactionCommand : ICommand<AddTransactionDto>
+public class AddTransactionCommand(Guid userId, Guid categoryId, DateTime transactionTime, string name, decimal amount)
+    : ICommand<AddTransactionDto>
 {
-    public Guid Id { get; set; }
-    public Guid UserId { get; set; }
-    public Guid CategoryId { get; set; }
-    public DateTime TransactionTime { get; set; }
-    public string Name { get; set; }
-    public decimal Amount { get; set; }
+    public Guid UserId { get; private init; } = userId;
+    public Guid CategoryId { get; private init; } = categoryId;
+    public DateTime TransactionTime { get; private init; } = transactionTime;
+    public string Name { get; private init; } = name;
+    public decimal Amount { get; private init; } = amount;
 }

@@ -1,8 +1,10 @@
 ﻿using Finance.Ai.Application.Users;
+using Finance.Ai.Presentation.Controllers;
+using Finance.Ai.Presentation.Users.Requests;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Finance.Ai.Presentation.Controllers;
+namespace Finance.Ai.Presentation.Users;
 
 [Route("api/users")]
 public class UsersController : ApiController
@@ -13,12 +15,13 @@ public class UsersController : ApiController
 
     [HttpPost]
     [Route("create")]
-    public async Task<IActionResult> Create([FromBody] CreateUserCommand command, CancellationToken cancellationToken)
+    public async Task<IActionResult> Create([FromBody] CreateUserRequest request, CancellationToken cancellationToken)
     {
+        var command = new CreateUserCommand(request.Email);
         var result = await Sender.Send(command, cancellationToken);
         
         if (result.IsSuccess) return Ok(result.Value);
         
-        return BadRequest(result.Error);
+        return BadRequest(new { message = result.Error });
     }
 }
